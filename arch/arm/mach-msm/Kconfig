@@ -3541,6 +3541,15 @@ config MSM_DEVFREQ_CPUBW
 config CPU_VOLTAGE_CONTROL
 	bool "Userspace CPU Voltage Control"
 	default y
+
+config MSM_CPUFREQ_LIMIT
+ 	tristate "MSM CPU frequency limiter"
+ 	default n
+ 	help
+
+config CPU_VOLTAGE_TABLE
+	bool "Enable CPU Voltage Table via sysfs"
+	default n
 	help
 	  This enables userspace CPU Voltage Control.
 
