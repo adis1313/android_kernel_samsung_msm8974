@@ -183,7 +183,7 @@ static int leds_i2c_write_all(struct i2c_client *client)
 				"%s: failure on i2c block write\n",
 				__func__);
 			retry++;
-			if(retry > 10)
+			if(retry > 10) 
 			{
 				dev_err(&client->adapter->dev,
 					"%s: retry > 10 : Fatal i2c error\n",

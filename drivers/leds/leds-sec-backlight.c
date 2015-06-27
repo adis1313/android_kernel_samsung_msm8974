@@ -134,7 +134,7 @@ static void easy_scale_type_set_brightness(struct led_classdev *led_cdev,
 			bkl_led->express_wire = 1;
 		}
 		gpio_direction_output(bkl_led->led_ctrl, 1); /* Data start */
-		udelay(KTD2801_T_DS);
+		udelay(KTD2801_T_DS); 
 
 		for (i = 0; i < KTD2801_DATA_BITS ; i++) /* Send DATA */
 			easy_scale_send_bit(bkl_led->led_ctrl, bkl_led->brt_table[brightness_idx].ic_value & (0x1 << (7-i)));
@@ -266,7 +266,7 @@ static void gpio_swing_type_set_brightness(struct led_classdev *led_cdev,
 			brightness_idx = bkl_led->brt_table[bkl_led->brt_table_len-1].ic_value;
 		} else {
 			int i;
-
+			
 			for (i = 0; i < bkl_led->brt_table_len; i++) {
 				if (value <= bkl_led->brt_table[i].os_value) {
 					brightness_idx = bkl_led->brt_table[i].ic_value;
@@ -320,7 +320,7 @@ static void gpio_swing_type_set_brightness(struct led_classdev *led_cdev,
 		}
 		bkl_led->brightness  = brightness_idx;
 	}
-
+	
 	mdelay(1);
 }
 
@@ -482,3 +482,4 @@ module_exit(led_gpio_bkl_exit);
 MODULE_DESCRIPTION("QCOM GPIO LEDs driver");
 MODULE_LICENSE("GPL v2");
 MODULE_ALIAS("leds:leds-msm-gpio-flash");
+

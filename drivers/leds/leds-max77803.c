@@ -46,7 +46,7 @@ struct max77803_led_data {
 	int test_brightness;
 #ifdef CONFIG_LEDS_SEPERATE_MOVIE_FLASH
 	int movie_brightness;
-#endif
+#endif 
 };
 
 static u8 led_en_mask[MAX77803_LED_MAX] = {
@@ -168,7 +168,7 @@ static int max77803_led_get_en_value(struct max77803_led_data *led_data, int on)
 		mode = 0x03; /*triggered via serial interface*/
 	else {
 		if (reg_led_timer[led_data->data->id]
-						== MAX77803_LED_REG_FLASH_TIMER)
+        					== MAX77803_LED_REG_FLASH_TIMER)
 			mode = 0x01; /*Flash triggered via FLASHEN*/
 		else
 			mode = 0x02; /*Torch triggered via TORCHEN*/
@@ -517,7 +517,7 @@ static int __devexit max77803_led_remove(struct platform_device *pdev)
 	device_remove_file(flash_dev, &dev_attr_rear_flash);
 #ifdef CONFIG_LEDS_SEPERATE_MOVIE_FLASH
 	device_remove_file(flash_dev, &dev_attr_movie_brightness);
-#endif
+#endif	
 	device_destroy(camera_class, 0);
 	class_destroy(camera_class);
 

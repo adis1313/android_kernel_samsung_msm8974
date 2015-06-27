@@ -68,3 +68,4 @@ module_exit(qci_backlight_exit);
 MODULE_AUTHOR("Quanta Computer Inc.");
 MODULE_DESCRIPTION("Quanta Embedded Controller I2C Backlight Driver");
 MODULE_LICENSE("GPL v2");
+

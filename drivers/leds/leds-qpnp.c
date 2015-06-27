@@ -1,5 +1,5 @@
 /* Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
- *
+ * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
  * only version 2 as published by the Free Software Foundation.
@@ -1291,7 +1291,7 @@ regulator_turn_off:
 					}
 				}
 
-
+		    
 #endif
 #ifdef SAMSUNG_USE_EXTERNAL_CHARGER
 		    qpnp_flash_reg_en(led,false);
@@ -4641,3 +4641,4 @@ module_exit(qpnp_led_exit);
 MODULE_DESCRIPTION("QPNP LEDs driver");
 MODULE_LICENSE("GPL v2");
 MODULE_ALIAS("leds:leds-qpnp");
+

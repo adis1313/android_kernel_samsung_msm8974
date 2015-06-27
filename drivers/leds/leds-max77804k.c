@@ -168,7 +168,7 @@ static int max77804k_led_get_en_value(struct max77804k_led_data *led_data, int o
 		mode = 0x03; /*triggered via serial interface*/
 	else {
 		if (reg_led_timer[led_data->data->id]
-						== MAX77804K_LED_REG_FLASH_TIMER)
+        					== MAX77804K_LED_REG_FLASH_TIMER)
 			mode = 0x01; /*Flash triggered via FLASHEN*/
 		else
 			mode = 0x02; /*Torch triggered via TORCHEN*/

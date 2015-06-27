@@ -77,3 +77,4 @@ static void __exit ledtrig_sleep_exit(void)
 
 module_init(ledtrig_sleep_init);
 module_exit(ledtrig_sleep_exit);
+

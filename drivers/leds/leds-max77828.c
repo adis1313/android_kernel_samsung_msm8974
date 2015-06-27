@@ -47,7 +47,7 @@ struct max77828_led_data {
 	int test_brightness;
 #ifdef CONFIG_LEDS_SEPERATE_MOVIE_FLASH
 	int movie_brightness;
-#endif
+#endif 
 };
 
 
@@ -261,7 +261,7 @@ static void max77828_torch_set(struct max77828_led_data *led_data)
 			pr_err("(%s) :  MAX77828_LED_REG_MODE_SEL update failed\n",__func__);
 
 		/* Torch OFF */
-		ret = max77828_write_reg(led_data->i2c, MAX77828_LED_REG_I_TORCH1,
+		ret = max77828_write_reg(led_data->i2c, MAX77828_LED_REG_I_TORCH1, 
 						MAX77828_TORCH_FLED1_EN);
 		if(IS_ERR_VALUE(ret))
 			pr_err("(%s) :  MAX77828_LED_REG_I_TORCH1 update failed\n",__func__ );
@@ -343,7 +343,7 @@ static int max77828_rgb_blink(struct led_classdev *led_cdev, unsigned long
 	return 0;
 }
 
-static ssize_t store_max77828_rgb_blink(struct device *dev, struct device_attribute *devattr,
+static ssize_t store_max77828_rgb_blink(struct device *dev, struct device_attribute *devattr, 
 													const char *buf, size_t count)
 {
 	int retval;
@@ -360,9 +360,9 @@ static ssize_t store_max77828_rgb_blink(struct device *dev, struct device_attrib
             return count;
     }
     if(led_brightness > 0 && led_brightness <=127)
-	ledb = LED_HALF;
+    	ledb = LED_HALF;
     else if (led_brightness > 127)
-	ledb = LED_FULL;
+    	ledb = LED_FULL;
 
 	led_data->led.brightness_set(led_cdev, ledb);
 	led_data->led.blink_set (led_cdev,  &delay_on_time, &delay_off_time);
@@ -583,7 +583,7 @@ static int max77828_led_hw_setup(struct max77828_led_data *led_data)
 		}
 	} else
 		pr_err("%s : can't find gpio", __func__);
-
+	
 	/*  pin control setting */
 	value = MAX77828_TORCH_MD_TORCHEN|MAX77828_TORCHEN_PD|
 			MAX77828_FLASH_MD_FLASHSTB|MAX77828_FLASHSTB_PD;
@@ -596,7 +596,7 @@ static int max77828_led_hw_setup(struct max77828_led_data *led_data)
 	if(IS_ERR_VALUE(ret))
 		pr_err("(%s) :  MAX77828_LED_REG_DCDC_CNTL1 write failed\n",__func__);
 
-	ret = max77828_write_reg(led_data->i2c, MAX77828_LED_REG_DCDC_CNTL2, 0x14);
+	ret = max77828_write_reg(led_data->i2c, MAX77828_LED_REG_DCDC_CNTL2, 0x14);                        
         if(IS_ERR_VALUE(ret))
                 pr_err("(%s) :  MAX77828_LED_REG_DCDC_CNTL2 write failed\n",__func__);
 
@@ -978,7 +978,7 @@ static int __devexit max77828_led_remove(struct platform_device *pdev)
 	device_remove_file(flash_dev, &dev_attr_rear_flash);
 #ifdef CONFIG_LEDS_SEPERATE_MOVIE_FLASH
 	device_remove_file(flash_dev, &dev_attr_movie_brightness);
-#endif
+#endif	
 	device_destroy(camera_class, 0);
 	class_destroy(camera_class);
 #ifdef SEC_LED_SPECIFIC
